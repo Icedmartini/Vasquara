@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body { margin: 0; background-color: #000; color: white; font-family: sans-serif; }
   </style>
@@ -16,14 +17,15 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    function LinkButton({ href, label }) {
+    function LinkButton({ iconClass, href, label }) {
       return (
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="block bg-gray-800 hover:bg-gray-700 transition-all duration-200 py-3 rounded-xl shadow-md w-full text-center text-lg font-medium"
+          className="flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-700 transition-all duration-200 py-3 rounded-xl shadow-md w-full text-lg font-medium"
         >
+          <i className={iconClass}></i>
           {label}
         </a>
       );
@@ -42,14 +44,14 @@
             <p className="text-gray-400 mt-1">Dijital İçerik Üreticisi</p>
 
             <div className="mt-8 space-y-4">
-              <LinkButton href="https://youtube.com/@vasquaral" label="YouTube" />
-              <LinkButton href="https://kick.com/vasquara" label="Kick" />
-              <LinkButton href="https://www.twitch.tv/vasquenta" label="Twitch" />
-              <LinkButton href="https://twitter.com/vasquara" label="Twitter" />
-              <LinkButton href="https://instagram.com/vasquara" label="Instagram" />
-              <LinkButton href="https://www.tiktok.com/@vasquara" label="Tiktok" />
-              <LinkButton href="https://www.bynogame.com/vasquara" label="Kahve Ismarla" />
-              <LinkButton href="mailto:vasquara@gmail.com" label="İletişim" />
+              <LinkButton iconClass="fab fa-youtube" href="https://youtube.com/@vasquaral" label="YouTube" />
+              <LinkButton iconClass="fab fa-kickstarter-k" href="https://kick.com/vasquara" label="Kick" />
+              <LinkButton iconClass="fab fa-twitch" href="https://www.twitch.tv/vasquenta" label="Twitch" />
+              <LinkButton iconClass="fab fa-twitter" href="https://twitter.com/vasquara" label="Twitter" />
+              <LinkButton iconClass="fab fa-instagram" href="https://instagram.com/vasquara" label="Instagram" />
+              <LinkButton iconClass="fab fa-tiktok" href="https://www.tiktok.com/@vasquara" label="Tiktok" />
+              <LinkButton iconClass="fas fa-mug-hot" href="https://www.bynogame.com/vasquara" label="Kahve Ismarla" />
+              <LinkButton iconClass="fas fa-envelope" href="mailto:vasquara@gmail.com" label="İletişim" />
             </div>
 
             <p className="mt-10 text-xs text-gray-600">© 2025 vasquara</p>
