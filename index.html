@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vasquara | Links</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-icons@4.9.0/dist/react-icons.min.js"></script>
+  <style>
+    body { margin: 0; background-color: #000; color: white; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { FaYoutube, FaTwitter, FaInstagram, FaGlobe, FaJava, FaKickstarterK, FaTwitch, FaTiktok, FaEnvelope } = ReactIcons;
+
+    function LinkButton({ icon, href, label }) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 transition-all duration-200 py-3 rounded-xl shadow-md w-full"
+        >
+          <span className="text-xl">{icon}</span>
+          <span className="font-medium text-lg">{label}</span>
+        </a>
+      );
+    }
+
+    function LinktreePage() {
+      return (
+        <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex flex-col items-center justify-center px-4 text-white font-sans">
+          <div className="max-w-md w-full text-center">
+            <img
+              src="https://via.placeholder.com/100"
+              alt="Vasquara"
+              className="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-lg"
+            />
+            <h1 className="text-3xl font-bold mt-4">Vasquara</h1>
+            <p className="text-gray-400 mt-1">Dijital İçerik Üreticisi</p>
+
+            <div className="mt-8 space-y-4">
+              <LinkButton icon={<FaYoutube />} href="https://youtube.com/@vasquaral" label="YouTube" />
+              <LinkButton icon={<FaKickstarterK />} href="https://kick.com/vasquara" label="Kick" />
+              <LinkButton icon={<FaTwitch />} href="https://www.twitch.tv/vasquenta" label="Twitch" />
+              <LinkButton icon={<FaTwitter />} href="https://twitter.com/vasquara" label="Twitter" />
+              <LinkButton icon={<FaInstagram />} href="https://instagram.com/vasquara" label="Instagram" />
+              <LinkButton icon={<FaTiktok />} href="https://www.tiktok.com/@vasquara" label="Tiktok" />
+              <LinkButton icon={<FaJava />} href="https://www.bynogame.com/vasquara" label="Kahve Ismarla" />
+              <LinkButton icon={<FaEnvelope />} href="mailto:vasquara@gmail.com" label="İletişim" />
+            </div>
+
+            <p className="mt-10 text-xs text-gray-600">© 2025 vasquara</p>
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<LinktreePage />);
+  </script>
+</body>
+</html>
