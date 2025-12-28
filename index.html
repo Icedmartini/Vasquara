@@ -1,67 +1,214 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vasquara | Links</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body { margin: 0; background-color: #000; color: white; font-family: sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASQUARA | Karanlığın ve Hikayenin Dijital Merkezi</title>
+    <meta name="description" content="Vasquara resmi web sitesi. Korku, hikaye ve simülasyon oyunları üzerine atmosferik içerikler, canlı yayın takvimi ve topluluk merkezi.">
+    <meta name="keywords" content="Vasquara, Korku Oyunları, Hikayeli Oyunlar, Simülasyon, YouTube, Yayıncı, Gaming">
+    <meta name="author" content="Vasquara">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vasquara.com/">
+    <meta property="og:title" content="VASQUARA | Karanlığın ve Hikayenin Merkezi">
+    <meta property="og:description" content="Her oyun yeni bir gerçeklik. Korku, hikaye ve simülasyon evrenine yolculuk başlasın.">
+    <meta property="og:image" content="https://vasquara.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="root"></div>
 
-  <script type="text/babel">
-    function LinkButton({ iconClass, href, label }) {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-700 transition-all duration-200 py-3 rounded-xl shadow-md w-full text-lg font-medium"
-        >
-          <i className={iconClass}></i>
-          {label}
-        </a>
-      );
-    }
-
-    function LinktreePage() {
-      return (
-        <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex flex-col items-center justify-center px-4 text-white font-sans">
-          <div className="max-w-md w-full text-center">
-            <img
-              src="Vasquaralogo.jpg"
-              alt="Vasquara"
-              className="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-lg"
-            />
-            <h1 className="text-3xl font-bold mt-4">Vasquara</h1>
-            <p className="text-gray-400 mt-1">Dijital İçerik Üreticisi</p>
-
-            <div className="mt-8 space-y-4">
-              <LinkButton iconClass="fab fa-youtube" href="https://youtube.com/@vasquara" label="YouTube" />
-              <LinkButton iconClass="fab fa-kickstarter-k" href="https://kick.com/vasquara" label="Kick" />
-              <LinkButton iconClass="fab fa-twitch" href="https://www.twitch.tv/vasquenta" label="Twitch" />
-              <LinkButton iconClass="fab fa-twitter" href="https://twitter.com/vasquara" label="Twitter" />
-              <LinkButton iconClass="fab fa-instagram" href="https://instagram.com/vasquara" label="Instagram" />
-              <LinkButton iconClass="fab fa-tiktok" href="https://www.tiktok.com/@vasquara" label="Tiktok" />
-              <LinkButton iconClass="fas fa-mug-hot" href="https://donate.bynogame.com/vasquara" label="Kahve Ismarla" />
-              <LinkButton iconClass="fas fa-envelope" href="mailto:vasquara@gmail.com" label="İletişim" />
+    <header id="navbar">
+        <nav class="container nav-container">
+            <a href="#hero" class="logo">
+                VASQUARA<span class="accent-dot">.</span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">Hakkımda</a></li>
+                    <li><a href="#schedule" class="nav-link">Yayın Takvimi</a></li>
+                    <li><a href="#social" class="nav-link">Topluluk</a></li>
+                    <li><a href="#contact" class="btn btn-sm btn-primary">İletişim</a></li>
+                </ul>
+                <div class="nav-close" id="navClose">
+                    <i class="fas fa-times"></i>
+                </div>
             </div>
 
-            <p className="mt-10 text-xs text-gray-600">© 2025 vasquara</p>
-          </div>
-        </div>
-      );
-    }
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<LinktreePage />);
-  </script>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content container">
+                <h1 class="hero-title glitch" data-text="VASQUARA">VASQUARA</h1>
+                <p class="hero-subtitle">Her Oyun Yeni Bir Gerçeklik.<br>Karanlığa ve Hikayeye Hoş Geldiniz.</p>
+                
+                <div class="hero-buttons">
+                    <a href="https://www.youtube.com/@vasquara" target="_blank" class="btn btn-primary glow-effect">
+                        <i class="fab fa-youtube"></i> Son Videoyu İzle
+                    </a>
+                    <a href="#schedule" class="btn btn-outline">
+                        Takvime Göz At
+                    </a>
+                </div>
+            </div>
+            
+             <a href="#about" class="scroll-down">
+                <i class="fas fa-chevron-down bouncing"></i>
+            </a>
+        </section>
+
+        <section id="about" class="section padding-block">
+            <div class="container about-grid">
+                <div class="about-image-wrapper overlay-effect">
+                    <img src="assets/images/profile.jpg" alt="Vasquara Profil Resmi" class="about-img" onerror="this.src='https://placehold.co/600x700/0a0a0a/ff003c?text=Vasquara+Image'">
+                    <div class="img-border"></div>
+                </div>
+                
+                <div class="about-content">
+                    <h2 class="section-title">Anlatıcı Hakkında</h2>
+                    <p class="lead-text">Merhaba, ben <strong>Vasquara</strong>. Burası sadece bir oyun kanalı değil; atmosferin, gizemin ve derin hikayelerin dijital bir arşivi.</p>
+                    <p><em>Silent Hill</em>'in sisli sokaklarından, detaylı simülasyonların yönetim koltuğuna kadar geniş bir yelpazede içerik üretiyorum. Amacım sadece oyunu bitirmek değil; o dünyanın atmosferini solumak ve bu sinematik deneyimi sizlerle paylaşmak.</p>
+                    <p>Eğer yüzeysel oynanışlardan sıkıldıysanız ve derinlik arıyorsanız, doğru yerdesiniz.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">Atmosfer</span>
+                            <span class="stat-desc">Odaklı İçerik</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Hikaye</span>
+                            <span class="stat-desc">Derinlemesine Analiz</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Topluluk</span>
+                            <span class="stat-desc">V-Squad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="section padding-block bg-darker slant-divider">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Haftalık Akış</h2>
+                    <p class="section-subtitle">Yayın saatleri ve içerikler değişiklik gösterebilir. Anlık duyurular için Discord'a katılın.</p>
+                </div>
+
+                <div class="schedule-wrapper">
+                    <div class="schedule-card">
+                        <div class="day-header">SALI</div>
+                        <div class="card-body">
+                            <span class="tag tag-sim">Simülasyon / Strateji</span>
+                            <h3 class="content-title">Yeni Video Yüklemesi</h3>
+                            <p class="platform"><i class="fab fa-youtube"></i> YouTube | 18:00</p>
+                        </div>
+                    </div>
+                     <div class="schedule-card featured">
+                        <div class="day-header">CUMA</div>
+                        <div class="card-body">
+                            <span class="tag tag-horror">Korku / Hikaye</span>
+                            <h3 class="content-title">Ana Hikaye Videosu</h3>
+                            <p class="platform"><i class="fab fa-youtube"></i> YouTube | 19:00</p>
+                        </div>
+                    </div>
+                     <div class="schedule-card">
+                        <div class="day-header">CUMARTESİ</div>
+                        <div class="card-body">
+                            <span class="tag tag-live">CANLI YAYIN</span>
+                            <h3 class="content-title">Vasquara Gecesi (Korku & Sohbet)</h3>
+                            <p class="platform"><i class="fas fa-video"></i> YouTube/Kick | ~21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social" class="section padding-block">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Topluluğa Katıl</h2>
+                    <p class="section-subtitle">Vasquara evrenini diğer platformlarda takip et, "V-Squad" arasına katıl.</p>
+                </div>
+
+                <div class="social-grid">
+                    <a href="https://www.youtube.com/@vasquara" target="_blank" class="social-card youtube">
+                        <div class="card-icon"><i class="fab fa-youtube"></i></div>
+                        <div class="card-info">
+                            <h3>YouTube</h3>
+                            <p>Ana Videolar & Shorts</p>
+                        </div>
+                    </a>
+
+                    <a href="https://kick.com/vasquara" target="_blank" class="social-card live">
+                        <div class="card-icon"><i class="fas fa-video"></i></div>
+                        <div class="card-info">
+                            <h3>Canlı Yayın</h3>
+                            <p>Canlı Etkileşim & Korku Geceleri</p>
+                        </div>
+                    </a>
+
+                    <a href="https://discord.gg/sCjCtp2QGg" target="_blank" class="social-card discord">
+                        <div class="card-icon"><i class="fab fa-discord"></i></div>
+                        <div class="card-info">
+                            <h3>Discord</h3>
+                            <p>Topluluk Merkezi & Sohbet</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/vasquara/" target="_blank" class="social-card instagram">
+                        <div class="card-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="card-info">
+                            <h3>Instagram</h3>
+                            <p>Duyurular & Kamera Arkası</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section padding-block bg-darker text-center">
+            <div class="container contact-wrapper">
+                <h2 class="section-title">İletişim & İşbirliği</h2>
+                <p class="contact-text">Sponsorluk, işbirliği teklifleri veya sadece merhaba demek için doğrudan ulaşabilirsiniz.</p>
+                
+                <div class="contact-actions">
+                    <a href="mailto:vasquara@gmail.com" class="btn btn-primary glow-effect">
+                        <i class="fas fa-envelope"></i> E-posta Gönder
+                    </a>
+                </div>
+                <p class="discord-note">veya Discord sunucusu üzerinden yönetici ekibine ulaşın.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="#hero" class="footer-logo">VASQUARA<span class="accent-dot">.</span></a>
+            <p class="copyright">&copy; 2025 Tüm Hakları Saklıdır.</p>
+            <div class="footer-socials">
+                 <a href="https://youtube.com/@vasquara"><i class="fab fa-youtube"></i></a>
+                <a href="https://discord.gg/sCjCtp2QGg"><i class="fab fa-discord"></i></a>
+                <a href="https://www.instagram.com/vasquara/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
