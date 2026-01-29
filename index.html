@@ -4,217 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VASQUARA | Karanlığın ve Hikayenin Dijital Merkezi</title>
-    <meta name="description" content="Vasquara resmi web sitesi. Korku, hikaye ve simülasyon oyunları üzerine atmosferik içerikler, canlı yayın takvimi ve topluluk merkezi.">
-    <meta name="keywords" content="Vasquara, Korku Oyunları, Hikayeli Oyunlar, Simülasyon, YouTube, Yayıncı, Gaming">
-    <meta name="author" content="Vasquara">
-    <meta name="theme-color" content="#0a0a0a">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vasquara.com/">
-    <meta property="og:title" content="VASQUARA | Karanlığın ve Hikayenin Merkezi">
-    <meta property="og:description" content="Her oyun yeni bir gerçeklik. Korku, hikaye ve simülasyon evrenine yolculuk başlasın.">
-    <meta property="og:image" content="https://vasquara.com/assets/images/og-image.jpg">
-
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #ff003c;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --text-light: #e0e0e0;
+            --accent-steam: #66c0f4;
+            --accent-amazon: #ff9900;
+            --accent-byno: #5f2785;
+            --accent-kick: #53fc18;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Montserrat', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .text-center { text-align: center; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 40px; }
+        .btn { padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary-color); color: #fff; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,0,60,0.4); }
+
+        /* Header & Nav */
+        header { padding: 20px 0; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: #fff; text-decoration: none; }
+        .nav-list { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-link { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; }
+        .nav-link:hover { color: var(--primary-color); }
+
+        /* Language Switcher */
+        .language-switcher { display: flex; gap: 10px; margin-left: 20px; border-left: 1px solid #333; padding-left: 20px; }
+        .lang-flag { width: 24px; cursor: pointer; transition: 0.3s; border-radius: 2px; opacity: 0.5; }
+        .lang-flag.active { opacity: 1; transform: scale(1.2); border: 1px solid var(--primary-color); }
+
+        /* Hero */
+        .hero-section { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=2000') center/cover; }
+        .hero-title { font-family: 'Cinzel', serif; font-size: clamp(3rem, 10vw, 6rem); letter-spacing: 8px; margin-bottom: 10px; }
+        .hero-subtitle { font-size: 1.2rem; color: #bbb; max-width: 700px; margin: 0 auto 30px; }
+
+        /* About Section */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img { width: 100%; border-radius: 10px; border: 1px solid var(--primary-color); box-shadow: 0 0 20px rgba(255,0,60,0.2); }
+
+        /* Schedule */
+        .schedule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .schedule-card { background: var(--bg-darker); padding: 30px; border-radius: 10px; border-left: 4px solid var(--primary-color); }
+        .schedule-card.kick { border-left-color: var(--accent-kick); }
+        .day { font-weight: bold; color: var(--primary-color); display: block; margin-bottom: 10px; }
+
+        /* Social Cards */
+        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .social-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; text-decoration: none; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .social-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); border-color: var(--primary-color); }
+        .social-card i { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .steam:hover { color: var(--accent-steam); border-color: var(--accent-steam); }
+        .amazon:hover { color: var(--accent-amazon); border-color: var(--accent-amazon); }
+
+        /* Donation Area */
+        .donate-box { background: linear-gradient(45deg, #1a0b2e, #050505); padding: 50px; border-radius: 15px; border: 1px solid var(--accent-byno); margin-top: 50px; }
+        .byno-btn { background: var(--accent-byno); color: white; margin-top: 20px; }
+
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .nav-list { display: none; } }
+    </style>
 </head>
 <body>
 
-    <header id="navbar">
+    <header>
         <nav class="container nav-container">
-            <a href="#hero" class="logo">
-                VASQUARA<span class="accent-dot">.</span>
-            </a>
-            
-            <div class="nav-menu" id="navMenu">
+            <a href="#" class="logo">VASQUARA<span style="color:var(--primary-color)">.</span></a>
+            <div style="display: flex; align-items: center;">
                 <ul class="nav-list">
-                    <li><a href="#about" class="nav-link">Hakkımda</a></li>
-                    <li><a href="#schedule" class="nav-link">Yayın Takvimi</a></li>
-                    <li><a href="#social" class="nav-link">Topluluk</a></li>
-                    <li><a href="#contact" class="btn btn-sm btn-primary">İletişim</a></li>
+                    <li><a href="#about" class="nav-link" data-key="nav_about">Hakkımda</a></li>
+                    <li><a href="#schedule" class="nav-link" data-key="nav_schedule">Takvim</a></li>
+                    <li><a href="#social" class="nav-link" data-key="nav_social">Topluluk</a></li>
                 </ul>
-                <div class="nav-close" id="navClose">
-                    <i class="fas fa-times"></i>
+                <div class="language-switcher">
+                    <img src="https://flagcdn.com/w40/tr.png" class="lang-flag active" onclick="setLanguage('tr')" id="lang-tr">
+                    <img src="https://flagcdn.com/w40/gb.png" class="lang-flag" onclick="setLanguage('en')" id="lang-en">
                 </div>
-            </div>
-
-            <div class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-content container">
-                <h1 class="hero-title glitch" data-text="VASQUARA">VASQUARA</h1>
-                <p class="hero-subtitle">Her Oyun Yeni Bir Gerçeklik.<br>Karanlığa ve Hikayeye Hoş Geldiniz.</p>
-                
-                <div class="hero-buttons">
-                    <a href="https://www.youtube.com/@vasquara" target="_blank" class="btn btn-primary glow-effect">
-                        <i class="fab fa-youtube"></i> Son Videoyu İzle
-                    </a>
-                    <a href="#schedule" class="btn btn-outline">
-                        Takvime Göz At
-                    </a>
-                </div>
-            </div>
-            
-             <a href="#about" class="scroll-down">
-                <i class="fas fa-chevron-down bouncing"></i>
-            </a>
-        </section>
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">VASQUARA</h1>
+            <p class="hero-subtitle" data-key="hero_subtitle">Her Oyun Yeni Bir Gerçeklik. Karanlığa ve Hikayeye Hoş Geldiniz.</p>
+            <a href="#about" class="btn btn-primary" data-key="btn_start">Keşfet</a>
+        </div>
+    </section>
 
-        <section id="about" class="section padding-block">
-            <div class="container about-grid">
-                <div class="about-image-wrapper overlay-effect">
-                    <img src="assets/images/profile.jpg" alt="Vasquara Profil Resmi" class="about-img" onerror="this.src='https://placehold.co/600x700/0a0a0a/ff003c?text=Vasquara+Image'">
-                    <div class="img-border"></div>
-                </div>
-                
-                <div class="about-content">
-                    <h2 class="section-title">Anlatıcı Hakkında</h2>
-                    <p class="lead-text">Merhaba, ben <strong>Vasquara</strong>. Burası sadece bir oyun kanalı değil; atmosferin, gizemin ve derin hikayelerin dijital bir arşivi.</p>
-                    <p><em>Silent Hill</em>'in sisli sokaklarından, detaylı simülasyonların yönetim koltuğuna kadar geniş bir yelpazede içerik üretiyorum. Amacım sadece oyunu bitirmek değil; o dünyanın atmosferini solumak ve bu sinematik deneyimi sizlerle paylaşmak.</p>
-                    <p>Eğer yüzeysel oynanışlardan sıkıldıysanız ve derinlik arıyorsanız, doğru yerdesiniz.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">Atmosfer</span>
-                            <span class="stat-desc">Odaklı İçerik</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">Hikaye</span>
-                            <span class="stat-desc">Derinlemesine Analiz</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">Topluluk</span>
-                            <span class="stat-desc">V-Squad</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="schedule" class="section padding-block bg-darker slant-divider">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Haftalık Akış</h2>
-                    <p class="section-subtitle">Yayın saatleri ve içerikler değişiklik gösterebilir. Anlık duyurular için Instagram ve Discord'a katılın.</p>
-                </div>
-
-                <div class="schedule-wrapper">
-                    
-                    <div class="schedule-card">
-                        <div class="day-header">HAFTA İÇİ</div>
-                        <div class="card-body">
-                            <span class="tag tag-live">Günlük Yayın</span>
-                            <h3 class="content-title">Gündüz Kuşağı</h3>
-                            <p class="platform"><i class="fab fa-youtube"></i> YouTube | 16:00</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-card">
-                        <div class="day-header">PAZARTESİ & ÇARŞAMBA</div>
-                        <div class="card-body">
-                            <span class="tag" style="background-color: #53fc18; color: #000; font-weight: bold;">KICK ÖZEL</span>
-                            <h3 class="content-title">Assetto EVO & ETS2</h3>
-                            <p class="platform" style="color: #53fc18;"><i class="fas fa-video"></i> Kick | 21:00</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-card featured">
-                        <div class="day-header">CUMARTESİ - PAZAR</div>
-                        <div class="card-body">
-                            <span class="tag tag-horror">Hafta Sonu Özel</span>
-                            <h3 class="content-title">Vasquara Gecesi</h3>
-                            <p class="platform"><i class="fab fa-youtube"></i> YouTube | 22:00</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="social" class="section padding-block">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Topluluğa Katıl</h2>
-                    <p class="section-subtitle">Vasquara evrenini diğer platformlarda takip et, "V-Squad" arasına katıl.</p>
-                </div>
-
-                <div class="social-grid">
-                    <a href="https://www.youtube.com/@vasquara" target="_blank" class="social-card youtube">
-                        <div class="card-icon"><i class="fab fa-youtube"></i></div>
-                        <div class="card-info">
-                            <h3>YouTube</h3>
-                            <p>Ana Videolar & Shorts</p>
-                        </div>
-                    </a>
-
-                    <a href="https://kick.com/vasquara" target="_blank" class="social-card live">
-                        <div class="card-icon"><i class="fas fa-video"></i></div>
-                        <div class="card-info">
-                            <h3>Canlı Yayın</h3>
-                            <p>Canlı Etkileşim & Korku Geceleri</p>
-                        </div>
-                    </a>
-
-                    <a href="https://discord.gg/sCjCtp2QGg" target="_blank" class="social-card discord">
-                        <div class="card-icon"><i class="fab fa-discord"></i></div>
-                        <div class="card-info">
-                            <h3>Discord</h3>
-                            <p>Topluluk Merkezi & Sohbet</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.instagram.com/vasquara/" target="_blank" class="social-card instagram">
-                        <div class="card-icon"><i class="fab fa-instagram"></i></div>
-                        <div class="card-info">
-                            <h3>Instagram</h3>
-                            <p>Duyurular & Kamera Arkası</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section padding-block bg-darker text-center">
-            <div class="container contact-wrapper">
-                <h2 class="section-title">İletişim & İşbirliği</h2>
-                <p class="contact-text">Sponsorluk, işbirliği teklifleri veya sadece merhaba demek için doğrudan ulaşabilirsiniz.</p>
-                
-                <div class="contact-actions">
-                    <a href="mailto:vasquara@gmail.com" class="btn btn-primary glow-effect">
-                        <i class="fas fa-envelope"></i> E-posta Gönder
-                    </a>
-                </div>
-                <p class="discord-note">veya Discord sunucusu üzerinden yönetici ekibine ulaşın.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <a href="#hero" class="footer-logo">VASQUARA<span class="accent-dot">.</span></a>
-            <p class="copyright">&copy; 2025 Tüm Hakları Saklıdır.</p>
-            <div class="footer-socials">
-                 <a href="https://youtube.com/@vasquara"><i class="fab fa-youtube"></i></a>
-                <a href="https://discord.gg/sCjCtp2QGg"><i class="fab fa-discord"></i></a>
-                <a href="https://www.instagram.com/vasquara/"><i class="fab fa-instagram"></i></a>
+    <section id="about" class="section container">
+        <div class="about-grid">
+            <img src="https://placehold.co/600x700/0a0a0a/ff003c?text=Vasquara+Profile" alt="Vasquara" class="about-img">
+            <div>
+                <h2 class="section-title" data-key="about_title">Anlatıcı Hakkında</h2>
+                <p data-key="about_p1">Merhaba, ben Vasquara. Burası sadece bir oyun kanalı değil; atmosferin, gizemin ve derin hikayelerin dijital bir arşivi.</p><br>
+                <p data-key="about_p2">Silent Hill'in sisli sokaklarından, detaylı simülasyonların yönetim koltuğuna kadar geniş bir yelpazede içerik üretiyorum. Amacım dünyaların atmosferini solumak.</p>
             </div>
         </div>
+    </section>
+
+    <section id="schedule" class="section container">
+        <h2 class="section-title text-center" data-key="nav_schedule">Yayın Takvimi</h2>
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <span class="day" data-key="day_weekday">HAFTA İÇİ</span>
+                <h3 data-key="sch_yt">YouTube Yayını</h3>
+                <p>16:00 - 20:00</p>
+            </div>
+            <div class="schedule-card kick">
+                <span class="day" style="color:var(--accent-kick)">PAZARTESİ & ÇARŞAMBA</span>
+                <h3 data-key="sch_kick">Kick Simülasyon Gecesi</h3>
+                <p>21:00 - 01:00</p>
+            </div>
+            <div class="schedule-card">
+                <span class="day" data-key="day_weekend">HAFTA SONU</span>
+                <h3 data-key="sch_horror">Korku Gecesi</h3>
+                <p>22:00+</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="section container text-center">
+        <h2 class="section-title" data-key="nav_social">Topluluğa Katıl</h2>
+        <div class="social-grid">
+            <a href="https://youtube.com/@vasquara" class="social-card"><i class="fab fa-youtube"></i>YouTube</a>
+            <a href="https://discord.gg/sCjCtp2QGg" class="social-card"><i class="fab fa-discord"></i>Discord</a>
+            <a href="https://instagram.com/vasquara" class="social-card"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="https://kick.com/vasquara" class="social-card"><i class="fas fa-video"></i>Kick</a>
+        </div>
+
+        <div class="social-grid">
+            <a href="STEAM_LINK" class="social-card steam"><i class="fab fa-steam"></i>Steam Wishlist</a>
+            <a href="AMAZON_LINK" class="social-card amazon"><i class="fab fa-amazon"></i>Amazon Wishlist</a>
+        </div>
+
+        <div class="donate-box">
+            <i class="fas fa-heart" style="color:var(--accent-byno); font-size: 2rem;"></i>
+            <h2 data-key="donate_title" style="margin-top:10px">Yayıncıyı Destekle</h2>
+            <p data-key="donate_desc">Bynogame üzerinden bağış yaparak ekipmanları geliştirmeme yardımcı olabilirsiniz.</p>
+            <a href="https://www.bynogame.com/destekle/vasquara" target="_blank" class="btn byno-btn">Bynogame ile Destek Ol</a>
+        </div>
+    </section>
+
+    <footer class="text-center" style="padding: 50px 0; opacity: 0.5;">
+        <p>&copy; 2025 VASQUARA. <span data-key="footer">Tüm Hakları Saklıdır.</span></p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const translations = {
+            'tr': {
+                'nav_about': 'Hakkımda', 'nav_schedule': 'Yayın Takvimi', 'nav_social': 'Topluluk',
+                'hero_subtitle': 'Her Oyun Yeni Bir Gerçeklik. Karanlığa ve Hikayeye Hoş Geldiniz.',
+                'btn_start': 'Keşfet', 'about_title': 'Anlatıcı Hakkında',
+                'about_p1': 'Merhaba, ben Vasquara. Burası sadece bir oyun kanalı değil; atmosferin, gizemin ve derin hikayelerin dijital bir arşivi.',
+                'about_p2': 'Silent Hill\'in sisli sokaklarından, detaylı simülasyonların yönetim koltuğuna kadar geniş bir yelpazede içerik üretiyorum.',
+                'day_weekday': 'HAFTA İÇİ', 'day_weekend': 'HAFTA SONU', 'sch_yt': 'YouTube Yayını',
+                'sch_kick': 'Kick Simülasyon Gecesi', 'sch_horror': 'Korku Gecesi',
+                'donate_title': 'Yayıncıyı Destekle', 'donate_desc': 'Bynogame üzerinden bağış yaparak ekipmanları geliştirmeme yardımcı olabilirsiniz.',
+                'footer': 'Tüm Hakları Saklıdır.'
+            },
+            'en': {
+                'nav_about': 'About', 'nav_schedule': 'Schedule', 'nav_social': 'Community',
+                'hero_subtitle': 'Every Game is a New Reality. Welcome to Darkness and Story.',
+                'btn_start': 'Explore', 'about_title': 'About the Narrator',
+                'about_p1': 'Hi, I am Vasquara. This is not just a gaming channel; it is a digital archive of atmosphere and deep stories.',
+                'about_p2': 'From the foggy streets of Silent Hill to simulation cockpits, I create wide range of content.',
+                'day_weekday': 'WEEKDAYS', 'day_weekend': 'WEEKEND', 'sch_yt': 'YouTube Stream',
+                'sch_kick': 'Kick Simulation Night', 'sch_horror': 'Horror Night',
+                'donate_title': 'Support the Streamer', 'donate_desc': 'You can help me upgrade my gear by donating via Bynogame.',
+                'footer': 'All Rights Reserved.'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                el.innerHTML = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-flag').forEach(f => f.classList.remove('active'));
+            document.getElementById('lang-' + lang).classList.add('active');
+            localStorage.setItem('lang', lang);
+        }
+
+        window.onload = () => { setLanguage(localStorage.getItem('lang') || 'tr'); };
+    </script>
 </body>
 </html>
-
-
