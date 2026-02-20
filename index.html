@@ -24,6 +24,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Yeni Sectionlar İçin Özel Stiller */
+        .wishlist-section {
+            background-color: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Steam Hover */
+        .wish-card.steam-card:hover {
+            border-color: #66c0f4;
+            background: rgba(102, 192, 244, 0.05);
+            transform: translateY(-10px);
+        }
+        .wish-card.steam-card i { color: #66c0f4; font-size: 3.5rem; margin-bottom: 20px; }
+
+        /* Amazon Hover */
+        .wish-card.amazon-card:hover {
+            border-color: #ff9900;
+            background: rgba(255, 153, 0, 0.05);
+            transform: translateY(-10px);
+        }
+        .wish-card.amazon-card i { color: #ff9900; font-size: 3.5rem; margin-bottom: 20px; }
+
+        /* ByNogame Section */
+        .donate-section {
+            padding-block: 100px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0b2e 100%);
+        }
+
+        .donate-box {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(95, 39, 133, 0.4);
+            padding: 50px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .byno-logo-icon {
+            font-size: 4rem;
+            color: #5f2785;
+            margin-bottom: 25px;
+        }
+
+        .btn-byno {
+            background-color: #5f2785;
+            color: white;
+            margin-top: 25px;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn-byno:hover {
+            background-color: #7b3ba5;
+            box-shadow: 0 0 20px rgba(95, 39, 133, 0.5);
+        }
+    </style>
 </head>
 <body>
 
@@ -37,6 +114,7 @@
                 <ul class="nav-list">
                     <li><a href="#about" class="nav-link">Hakkımda</a></li>
                     <li><a href="#schedule" class="nav-link">Yayın Takvimi</a></li>
+                    <li><a href="#wishlist" class="nav-link">İstek Listeleri</a></li>
                     <li><a href="#social" class="nav-link">Topluluk</a></li>
                     <li><a href="#contact" class="btn btn-sm btn-primary">İletişim</a></li>
                 </ul>
@@ -83,7 +161,6 @@
                     <h2 class="section-title">Anlatıcı Hakkında</h2>
                     <p class="lead-text">Merhaba, ben <strong>Vasquara</strong>. Burası sadece bir oyun kanalı değil; atmosferin, gizemin ve derin hikayelerin dijital bir arşivi.</p>
                     <p><em>Silent Hill</em>'in sisli sokaklarından, detaylı simülasyonların yönetim koltuğuna kadar geniş bir yelpazede içerik üretiyorum. Amacım sadece oyunu bitirmek değil; o dünyanın atmosferini solumak ve bu sinematik deneyimi sizlerle paylaşmak.</p>
-                    <p>Eğer yüzeysel oynanışlardan sıkıldıysanız ve derinlik arıyorsanız, doğru yerdesiniz.</p>
                     
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -104,92 +181,83 @@
         </section>
 
         <section id="schedule" class="section padding-block bg-darker slant-divider">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title">Haftalık Akış</h2>
-            <p class="section-subtitle">Yayın saatleri ve içerikler değişiklik gösterebilir. Anlık duyurular için Instagram ve Discord'a katılın.</p>
-        </div>
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Haftalık Akış</h2>
+                    <p class="section-subtitle">Yayın saatleri ve içerikler değişiklik gösterebilir. Anlık duyurular için Instagram ve Discord'a katılın.</p>
+                </div>
 
-        <div class="schedule-wrapper">
-            <div class="schedule-card">
-                <div class="day-header">HAFTA İÇİ</div>
-                <div class="card-body">
-                    <span class="tag tag-live">Günlük Yayın</span>
-                    <h3 class="content-title">Gündüz Kuşağı</h3>
-                    <p class="platform"><i class="fab fa-youtube"></i> YouTube | 18:00</p>
+                <div class="schedule-wrapper">
+                    <div class="schedule-card">
+                        <div class="day-header">HAFTA İÇİ</div>
+                        <div class="card-body">
+                            <span class="tag tag-live">Günlük Yayın</span>
+                            <h3 class="content-title">Gündüz Kuşağı</h3>
+                            <p class="platform"><i class="fab fa-youtube"></i> YouTube | 16:00</p>
+                        </div>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="day-header">PAZARTESİ & ÇARŞAMBA</div>
+                        <div class="card-body">
+                            <span class="tag" style="background-color: #53fc18; color: #000; font-weight: bold;">KICK ÖZEL</span>
+                            <h3 class="content-title">Assetto EVO & ETS2</h3>
+                            <p class="platform" style="color: #53fc18;"><i class="fas fa-video"></i> Kick | 21:00</p>
+                        </div>
+                    </div>
+
+                    <div class="schedule-card featured">
+                        <div class="day-header">CUMARTESİ - PAZAR</div>
+                        <div class="card-body">
+                            <span class="tag tag-horror">Hafta Sonu Özel</span>
+                            <h3 class="content-title">Vasquara Gecesi</h3>
+                            <p class="platform"><i class="fab fa-youtube"></i> YouTube | 22:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="schedule-card featured">
-                <div class="day-header">CUMARTESİ</div>
-                <div class="card-body">
-                    <span class="tag" style="background-color: #ff003c; color: #fff; font-weight: bold;">EKİP İLE OYUN</span>
-                    <h3 class="content-title">Kaos ve Eğlence</h3>
-                    <p class="platform"><i class="fab fa-youtube"></i> YouTube | 20:00</p>
+        <section id="wishlist" class="section padding-block wishlist-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">İstek Listelerim</h2>
+                    <p class="section-subtitle">Gelişimi desteklemek veya hediye göndermek isterseniz listelerime göz atabilirsiniz.</p>
+                </div>
+
+                <div class="wishlist-grid">
+                    <a href="STEAM_LINKINIZ" target="_blank" class="wish-card steam-card">
+                        <i class="fab fa-steam"></i>
+                        <h3>Steam Wishlist</h3>
+                        <p>Kanalda görmek istediğiniz oyunlar ve favori listem.</p>
+                    </a>
+
+                    <a href="AMAZON_LINKINIZ" target="_blank" class="wish-card amazon-card">
+                        <i class="fab fa-amazon"></i>
+                        <h3>Amazon Wishlist</h3>
+                        <p>Yayın ekipmanları ve stüdyo için ihtiyaç duyduğum ürünler.</p>
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <div class="schedule-card featured">
-                <div class="day-header">PAZAR</div>
-                <div class="card-body">
-                    <span class="tag tag-horror">OYUN KEŞİFLERİ</span>
-                    <h3 class="content-title">Yeni Dünyalar</h3>
-                    <p class="platform"><i class="fab fa-youtube"></i> YouTube | 20:00</p>
+        <section id="donate" class="section padding-block donate-section text-center">
+            <div class="container">
+                <div class="donate-box">
+                    <i class="fas fa-hand-holding-heart byno-logo-icon"></i>
+                    <h2 class="section-title">Yayıncıyı Destekle</h2>
+                    <p>Bağışlarınız doğrudan içerik kalitesini artırmak ve yeni ekipmanlar sağlamak için kullanılır. Desteğiniz için teşekkürler!</p>
+                    <a href="https://www.bynogame.com/destekle/vasquara" target="_blank" class="btn btn-byno glow-effect">
+                        <i class="fas fa-coins"></i> ByNogame ile Bağış Yap
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-       <section id="shop" class="section padding-block bg-darker">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title">VASQUARA DÜKKAN</h2>
-            <p class="section-subtitle">Çok yakında hizmetinizde...</p>
-        </div>
-
-        <div class="shop-container">
-            <div class="shop-item">
-                <div class="shop-media">
-                    <img src="https://placehold.co/600x600/0a0a0a/ff9900?text=KUPA+BARDAK" alt="Kupa">
-                    <div class="shop-status">YAKINDA</div>
-                </div>
-                <div class="shop-details">
-                    <h3>Kupa Bardaklar</h3>
-                    <p>En uzun gecelerde yoldaşınız.</p>
-                </div>
-            </div>
-
-            <div class="shop-item">
-                <div class="shop-media">
-                    <img src="https://placehold.co/600x600/0a0a0a/ff9900?text=MUMLAR" alt="Mum">
-                    <div class="shop-status">YAKINDA</div>
-                </div>
-                <div class="shop-details">
-                    <h3>Özel Mumlar</h3>
-                    <p>Hikayenin kokusunu hissedin.</p>
-                </div>
-            </div>
-
-            <div class="shop-item">
-                <div class="shop-media">
-                    <img src="https://placehold.co/600x600/0a0a0a/ff9900?text=AKSESUARLAR" alt="Aksesuar">
-                    <div class="shop-status">YAKINDA</div>
-                </div>
-                <div class="shop-details">
-                    <h3>Aksesuarlar</h3>
-                    <p>VaSquad imzalı parçalar.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        
         <section id="social" class="section padding-block">
             <div class="container">
                 <div class="section-header text-center">
                     <h2 class="section-title">Topluluğa Katıl</h2>
-                    <p class="section-subtitle">Vasquara evrenini diğer platformlarda takip et, "V-Squad" arasına katıl.</p>
                 </div>
 
                 <div class="social-grid">
@@ -231,14 +299,11 @@
         <section id="contact" class="section padding-block bg-darker text-center">
             <div class="container contact-wrapper">
                 <h2 class="section-title">İletişim & İşbirliği</h2>
-                <p class="contact-text">Sponsorluk, işbirliği teklifleri veya sadece merhaba demek için doğrudan ulaşabilirsiniz.</p>
-                
                 <div class="contact-actions">
                     <a href="mailto:vasquara@gmail.com" class="btn btn-primary glow-effect">
                         <i class="fas fa-envelope"></i> E-posta Gönder
                     </a>
                 </div>
-                <p class="discord-note">veya Discord sunucusu üzerinden yönetici ekibine ulaşın.</p>
             </div>
         </section>
     </main>
@@ -247,22 +312,9 @@
         <div class="container footer-content">
             <a href="#hero" class="footer-logo">VASQUARA<span class="accent-dot">.</span></a>
             <p class="copyright">&copy; 2025 Tüm Hakları Saklıdır.</p>
-            <div class="footer-socials">
-                 <a href="https://youtube.com/@vasquara"><i class="fab fa-youtube"></i></a>
-                <a href="https://discord.gg/sCjCtp2QGg"><i class="fab fa-discord"></i></a>
-                <a href="https://www.instagram.com/vasquara/"><i class="fab fa-instagram"></i></a>
-            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
