@@ -197,6 +197,77 @@
     70% { opacity: 1; box-shadow: 0 0 0 10px rgba(255, 153, 0, 0); }
     100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(255, 153, 0, 0); }
 }
+        /* Duyuru Section Stilleri */
+        .announcement-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #110306 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .announcement-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .announcement-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 0, 60, 0.2); /* Sitenin aksan kırmızısı */
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 0, 60, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 0, 60, 0.15);
+        }
+
+        .announcement-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: #ff003c;
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .pulse-badge {
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 0, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0); }
+        }
+
+        .announcement-title {
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .announcement-date {
+            color: #ff9900;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .announcement-text {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -248,12 +319,39 @@
             </a>
         </section>
 
+        
+
         <section id="about" class="section padding-block">
             <div class="container about-grid">
                 <div class="about-image-wrapper overlay-effect">
                     <img src="assets/images/profile.jpg" alt="Vasquara Profil Resmi" class="about-img" onerror="this.src='https://placehold.co/600x700/0a0a0a/ff003c?text=Vasquara+Image'">
                     <div class="img-border"></div>
                 </div>
+
+                <section id="announcements" class="section padding-block announcement-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Son Duyurular</h2>
+                    <p class="section-subtitle">Yayından, etkinliklerden ve topluluktan en güncel haberler.</p>
+                </div>
+
+                <div class="announcement-wrapper">
+                    <div class="announcement-card">
+                        <div class="announcement-badge pulse-badge">ÖNEMLİ</div>
+                        <div class="announcement-content">
+                            <h3 class="announcement-title">Bu Akşam Büyük Korku Gecesi Başlıyor!</h3>
+                            <p class="announcement-date"><i class="far fa-calendar-alt"></i> 20 Şubat 2026 | 21:00</p>
+                            <p class="announcement-text">
+                                Beklenen an geldi. Yeni hayatta kalma serimize bu akşam efsane bir giriş yapıyoruz. Işıkları kapatın, kulaklıkları takın ve VaSquad ile bu maceraya ortak olun. Yayında ufak sürprizlerim de olacak, kaçırmayın!
+                            </p>
+                            <a href="https://kick.com/vasquara" target="_blank" class="btn btn-primary glow-effect">
+                                <i class="fas fa-video"></i> Yayına Katıl
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
                 
                 <div class="about-content">
                     <h2 class="section-title">Anlatıcı Hakkında</h2>
@@ -467,6 +565,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
